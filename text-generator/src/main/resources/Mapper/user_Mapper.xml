@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scj.text.generator.Dao.user_dao">
+    <select id="select_user_by_username" resultType="user">
+        select * from user where username = #{username}
+    </select>
+    <insert id="register_new_user" parameterType="user">
+        insert into `user` (`username`,`password`,`email`,`user_photo_url`) Values(#{username}, #{password},#{email},#{user_photo_url})
+    </insert>
+    <select id="select_user_by_email" resultType="user">
+        select * from user where email = #{email}
+    </select>
+    <update id="update_user_password">
+        update user set password = #{new_password} where email = #{email}
+    </update>
+    <update id="update_user_password_by_user_id">
+        update user set password = #{password} where user_id = #{user_id}
+    </update>
+    <update id="update_user_photo_url_by_user_id">
+        update user set user_photo_url = #{user_photo_url} where user_id = #{user_id}
+    </update>
+    <select id="select_user_by_user_id" resultType="user">
+        select * from user where user_id = #{user_id}
+    </select>
+</mapper>

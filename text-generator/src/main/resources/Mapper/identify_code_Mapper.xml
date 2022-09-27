@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scj.text.generator.Dao.identify_code_dao">
+    <insert id="insert_new_identify_code" parameterType="identify_code">
+        insert into `identify_code` (`identify_code`,`email`,`email_type`,`date`) Values(#{identify_code}, #{email},#{email_type},#{date})
+    </insert>
+    <select id="select_identify_code" resultType="identify_code">
+        select * from identify_code where email = #{email} and identify_code = #{identify_code}
+    </select>
+</mapper>

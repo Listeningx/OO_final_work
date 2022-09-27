@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scj.text.generator.Dao.commit_record_dao">
+    <insert id="insert_new_commit" parameterType="commit_record">
+        <selectKey keyProperty="commit_id" resultType="Integer" order="AFTER">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into `commit_record` (`user_id`,`commit_time`,`title`) Values(#{user_id}, #{commit_time},#{title})
+    </insert>
+    <select id="select_user_commit_list" resultType="commit_record">
+        select * from commit_record where user_id = #{user_id}
+    </select>
+    <delete id="delete_by_commit_id">
+        delete from commit_record where commit_id = #{commit_id} and user_id = #{user_id}
+    </delete>
+</mapper>

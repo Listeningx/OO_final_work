@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scj.text.generator.Dao.commit_images_dao">
+    <insert id="insert_commit_image_url" parameterType="commit_images">
+        insert into `commit_images` (`commit_id`,`image_url`) Values(#{commit_id}, #{image_url})
+    </insert>
+    <select id="select_commit_images_url" resultType="commit_images">
+        select * from commit_images where commit_id = #{commit_id}
+    </select>
+</mapper>
